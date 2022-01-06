@@ -8,7 +8,7 @@ function Puzzle() {
         <div className={styles.wrapper}>
             <JigsawPuzzle
                 imageSrc={
-                    "https://images.unsplash.com/photo-1586671267731-da2cf3ceeb80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=989&q=80"
+                    "https://images.unsplash.com/photo-1641494281169-9670fffcd52e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1364&q=80"
                 }
                 rows={4}
                 columns={4}
