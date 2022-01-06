@@ -1,0 +1,17 @@
+{
+    "importOrder": [
+        "^@config(.*)$",
+        "^@redux(.*)$",
+        "^@utils(.*)$",
+        "^@constants(.*)$",
+        "^@helpers(.*)$",
+        "^@components(.*)$",
+        "^@screens(.*)$",
+        "^[./]"
+    ],
+    "tabWidth": 4,
+    "semi": true,
+    "bracketSpacing": true,
+    "importOrderSeparation": true,
+    "importOrderSortSpecifiers": true
+}
