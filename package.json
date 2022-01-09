@@ -1,23 +1,25 @@
 {
-  "name": "jigsaw-toppr",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "firebase": "^9.6.1",
-    "next": "12.0.7",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "react-jigsaw-puzzle": "^1.0.3",
-    "react-timer-hook": "^3.0.5",
-    "sass": "^1.46.0"
-  },
-  "devDependencies": {
-    "eslint": "8.6.0",
-    "eslint-config-next": "12.0.7"
-  }
+    "name": "jigsaw-toppr",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint"
+    },
+    "dependencies": {
+        "firebase": "^9.6.1",
+        "next": "12.0.7",
+        "next-transpile-modules": "^9.0.0",
+        "react": "17.0.2",
+        "react-dom": "17.0.2",
+        "react-jigsaw-puzzle": "^1.0.3",
+        "react-timer-hook": "^3.0.5",
+        "sass": "^1.46.0",
+        "styled-components": "^5.3.3"
+    },
+    "devDependencies": {
+        "eslint": "8.6.0",
+        "eslint-config-next": "12.0.7"
+    }
 }
