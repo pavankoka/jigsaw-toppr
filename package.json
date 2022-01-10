@@ -2,7 +2,7 @@
     "name": "jigsaw-toppr",
     "private": true,
     "scripts": {
-        "dev": "next dev",
+        "dev": "next dev -p 1729",
         "build": "next build",
         "start": "next start",
         "lint": "next lint"
@@ -13,6 +13,7 @@
         "next-transpile-modules": "^9.0.0",
         "react": "17.0.2",
         "react-dom": "17.0.2",
+        "react-google-login": "^5.2.2",
         "react-jigsaw-puzzle": "^1.0.3",
         "react-timer-hook": "^3.0.5",
         "sass": "^1.46.0",

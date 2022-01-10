@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import useWindowSize from "../hooks/useWindowSize";
+import Image from "next/image";
 import Input from "../utils/input";
 import { useRouter } from "next/router";
+import { GoogleLogin } from "react-google-login";
 
 import styles from "./index.module.scss";
 
@@ -41,7 +43,7 @@ function Index() {
                 className={styles.image}
                 style={{ left: `${pointerX}px`, top: `${pointerY}px` }}
             >
-                <img layout="fill" src="/images/itachi.jpg" alt="itachi" />
+                <Image layout="fill" src="/images/itachi.jpg" alt="itachi" />
             </div>
             <div className={styles.content} onMouseMove={onMouseMove}>
                 <h1 className={styles.title}>
@@ -72,6 +74,13 @@ function Index() {
                         <p className={styles.button} onClick={handleSubmit}>
                             submit
                         </p>
+                        <GoogleLogin
+                            clientId="578651997699-l088ltc2m11cdj4jfgasfml85qcd69m7.apps.googleusercontent.com"
+                            buttonText="Login"
+                            onSuccess={(res) => console.log("success", res)}
+                            onFailure={(res) => console.log("failure", res)}
+                            cookiePolicy={"single_host_origin"}
+                        />
                     </div>
                 </div>
             </div>
