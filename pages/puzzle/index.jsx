@@ -71,8 +71,8 @@ function Puzzle() {
             <div className={styles.puzzle}>
                 <JigsawPuzzle
                     imageSrc="https://images.unsplash.com/photo-1641494281169-9670fffcd52e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1364&q=80"
-                    rows={2}
-                    columns={2}
+                    rows={4}
+                    columns={4}
                     onSolved={onSuccess}
                 />
             </div>
