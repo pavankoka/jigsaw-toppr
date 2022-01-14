@@ -1,0 +1,7 @@
+{
+  "projects": {
+    "default": "jigsaw-test-a434d",
+    "staging": "jigsaw-test-a434d"
+  },
+  "targets": {}
+}
