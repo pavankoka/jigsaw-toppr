@@ -1,12 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./index.module.scss";
 
 function Success() {
-    let time;
+    const [time, setTime] = useState(null);
 
     useEffect(() => {
-        time = localStorage.getItem("time_taken");
+        setTime(localStorage.getItem("time_taken"));
     }, []);
+
     return (
         <div className={styles.wrapper}>
             <h1>Congratulations!</h1>
