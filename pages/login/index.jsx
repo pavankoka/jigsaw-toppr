@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import useWindowSize from "../hooks/useWindowSize";
+import useWindowSize from "../../hooks/useWindowSize";
 import Image from "next/image";
-import Input from "../utils/input";
+import Input from "../../utils/input";
 import { useRouter } from "next/router";
 import { GoogleLogin } from "react-google-login";
 
@@ -46,7 +46,7 @@ function Index() {
         <div className={styles.wrapper}>
             <div className={styles.image}>
                 <Image
-                    src={require("../public/images/login/login-left-side.png")}
+                    src={require("../../public/images/login/login-left-side.png")}
                     alt="login-left-side"
                     objectFit="contain"
                 />
