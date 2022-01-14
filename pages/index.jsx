@@ -29,8 +29,13 @@ function Index() {
         setPointerY(-newPointerY * 20);
     }
 
-    function handleSubmit() {
-        if (email === password) {
+    function handleSuccess(res) {
+        const profile = res.profileObj;
+        const name = profile.name;
+        const email = profile.email;
+
+        if (profile && name && email) {
+            localStorage.setItem("name", name);
             localStorage.setItem("email", email);
             localStorage.setItem("timer", 0);
             router.push("/puzzle");
@@ -39,49 +44,24 @@ function Index() {
 
     return (
         <div className={styles.wrapper}>
-            <div
-                className={styles.image}
-                style={{ left: `${pointerX}px`, top: `${pointerY}px` }}
-            >
-                <Image layout="fill" src="/images/itachi.jpg" alt="itachi" />
+            <div className={styles.image}>
+                <Image
+                    src={require("../public/images/login/login-left-side.png")}
+                    alt="login-left-side"
+                    objectFit="contain"
+                />
             </div>
-            <div className={styles.content} onMouseMove={onMouseMove}>
-                <h1 className={styles.title}>
-                    If you have to ask, you’ll never know. If you know, you need
-                    only ask
-                </h1>
-                <div
-                    style={{
-                        height: showLogin ? "430px" : "0",
-                    }}
-                    className={styles.boxWrapper}
-                >
-                    <div className={styles.login}>
-                        <p className={styles.header}>Login</p>
-                        <Input
-                            value={email}
-                            placeholder="Email"
-                            styles={{ marginBottom: "50px" }}
-                            onChange={({ value }) => setEmail(value)}
-                        />
-                        <Input
-                            value={password}
-                            placeholder="Password"
-                            type="password"
-                            styles={{ marginBottom: "50px" }}
-                            onChange={({ value }) => setPassword(value)}
-                        />
-                        <p className={styles.button} onClick={handleSubmit}>
-                            submit
-                        </p>
-                        <GoogleLogin
-                            clientId="578651997699-l088ltc2m11cdj4jfgasfml85qcd69m7.apps.googleusercontent.com"
-                            buttonText="Login"
-                            onSuccess={(res) => console.log("success", res)}
-                            onFailure={(res) => console.log("failure", res)}
-                            cookiePolicy={"single_host_origin"}
-                        />
-                    </div>
+            <div className={styles.content}>
+                <div className={styles.login}>
+                    <p className={styles.title}>PLAY NOW</p>
+                    <GoogleLogin
+                        isSignedIn={true}
+                        clientId="578651997699-l088ltc2m11cdj4jfgasfml85qcd69m7.apps.googleusercontent.com"
+                        buttonText="Continue with Google"
+                        onSuccess={handleSuccess}
+                        onFailure={(res) => console.log("failure", res)}
+                        cookiePolicy={"single_host_origin"}
+                    />
                 </div>
             </div>
         </div>

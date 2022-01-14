@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { JigsawPuzzle } from "react-jigsaw-puzzle/lib";
+import firebase from "../../hooks/useFirebase";
+import { getDatabase, ref, child, get } from "firebase/database";
 import "react-jigsaw-puzzle/lib/jigsaw-puzzle.css";
 import styles from "./index.module.scss";
 
@@ -8,14 +11,25 @@ function Puzzle() {
 
     useEffect(() => {
         setInterval(() => {
-            setTimer(currentTimer => {
+            setTimer((currentTimer) => {
                 const updatedTime = parseInt(currentTimer, 10) + 1;
                 localStorage.setItem("timer", updatedTime);
                 return updatedTime;
             });
         }, 1000);
         setTimer(localStorage.getItem("timer"));
+
+        // getData();
     }, []);
+
+    // function getData() {
+    //     const ref = firebase.firestore().collection("employee-timer");
+
+    //     ref.onSnapshot((snapshot) => {
+    //         debugger;
+    //         console.log(snapshot);
+    //     });
+    // }
 
     return (
         <div className={styles.wrapper}>
@@ -36,6 +50,12 @@ function Puzzle() {
                     rows={4}
                     columns={4}
                     onSolved={() => alert("Solved!")}
+                />
+            </div>
+            <div className={styles.preview}>
+                <Image
+                    src={require("../../public/images/koka.jpg")}
+                    objectFit="contain"
                 />
             </div>
         </div>

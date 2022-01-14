@@ -3,67 +3,44 @@
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    background: black;
     box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
 
     .image {
-        height: calc(100vh + 40px) !important;
-        width: calc(100vw + 40px) !important;
-        position: absolute;
-        z-index: 1;
-        opacity: 0.5;
+        width: calc((1414 / 2000) * 100vh);
     }
 
     .content {
         position: relative;
-        width: 100vw;
-        height: 100vh;
-        z-index: 2;
-        padding: 100px;
+        width: calc((1414 / 2000) * 100vh);
+        height: 100%;
 
-        .title {
-            width: 580px;
-            margin-left: 560px;
-            font-size: 36px;
-            font-weight: semi-bold;
-            line-height: 50px;
-            text-align: center;
-            color: #f5f5f5;
-        }
+        background-image: url("../public/images/login/login-background.png");
+        background-size: auto 100vh;
+        background-position: right;
+        background-repeat: no-repeat;
 
-        .boxWrapper {
+        .login {
             position: absolute;
-            right: 50px;
-            bottom: 0;
-            background: #f5f5f5;
-            transition: height 0.5s ease-in;
-            border-radius: 5px 5px 0 0;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 32px;
+            background: whitesmoke;
+            border-radius: 5px;
 
-            .login {
-                padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
 
-                .header {
-                    font-size: 32px;
-                    margin-bottom: 50px;
-                }
-
-                .button {
-                    background-color: #1d1d1d;
-                    color: #f5f5f5;
-                    width: 300px;
-                    padding: 12px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    cursor: pointer;
-                    transform: scale(1);
-                    transition: all 0.3s ease-in;
-                    border-radius: 5px;
-
-                    &:hover {
-                        transform: scale(1.02);
-                    }
-                }
+            .title {
+                width: 300px;
+                border-radius: 5px;
+                background-color: lightgreen;
+                padding: 20px 32px;
+                text-align: center;
+                margin-bottom: 20px;
             }
         }
     }
