@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import cx from "classnames";
 import useWindowSize from "../../hooks/useWindowSize";
 import Image from "next/image";
 import Input from "../../utils/input";
 import { useRouter } from "next/router";
+import { isMobile } from "react-device-detect";
 import { GoogleLogin } from "react-google-login";
 
 import styles from "./index.module.scss";
@@ -14,12 +16,10 @@ function Index() {
     const [password, setPassword] = useState("");
     const [pointerX, setPointerX] = useState(-20);
     const [pointerY, setPointerY] = useState(-20);
-    const [showLogin, setShowLogin] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        setTimeout(() => {
-            setShowLogin(true);
-        }, 500);
+        setIsLoading(false);
     }, []);
 
     function onMouseMove(e) {
@@ -42,16 +42,24 @@ function Index() {
         }
     }
 
+    if (isLoading) {
+        return <p>loding ...</p>;
+    }
+
     return (
         <div className={styles.wrapper}>
-            <div className={styles.image}>
-                <Image
-                    src={require("../../public/images/login/login-left-side.png")}
-                    alt="login-left-side"
-                    objectFit="contain"
-                />
-            </div>
-            <div className={styles.content}>
+            {!isMobile && (
+                <div className={styles.image}>
+                    <Image
+                        src={require("../../public/images/login/login-left-side.png")}
+                        alt="login-left-side"
+                        objectFit="contain"
+                    />
+                </div>
+            )}
+            <div
+                className={cx(styles.content, isMobile ? styles.mobile : null)}
+            >
                 <div className={styles.login}>
                     <p className={styles.title}>PLAY NOW</p>
                     <GoogleLogin
