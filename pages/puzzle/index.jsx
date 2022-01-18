@@ -83,13 +83,15 @@ function Puzzle() {
                     onSolved={onSuccess}
                 />
             </div>
-            <div className={styles.preview}>
-                <Image
-                    src={require("../../public/images/india-map.jpeg")}
-                    objectFit="contain"
-                    alt="india map"
-                />
-            </div>
+            {!isMobile && (
+                <div className={styles.preview}>
+                    <Image
+                        src={require("../../public/images/india-map.jpeg")}
+                        objectFit="contain"
+                        alt="india map"
+                    />
+                </div>
+            )}
         </div>
     );
 }
