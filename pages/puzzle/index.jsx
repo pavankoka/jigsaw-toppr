@@ -77,7 +77,7 @@ function Puzzle() {
             </div>
             <div className={styles.puzzle}>
                 <JigsawPuzzle
-                    imageSrc="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcSmoTdPKqskrGQ4yqc5wFTfacmKZcgbwpnw&usqp=CAU"
+                    imageSrc="http://access.bgeraser.com:8889/results/IzWb5Ojs.jpg"
                     rows={5}
                     columns={5}
                     onSolved={onSuccess}
@@ -86,7 +86,7 @@ function Puzzle() {
             {!isMobile && (
                 <div className={styles.preview}>
                     <Image
-                        src={require("../../public/images/india-map.jpeg")}
+                        src={require("../../public/images/india-map.png")}
                         objectFit="contain"
                         alt="india map"
                     />
