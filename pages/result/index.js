@@ -4,7 +4,6 @@ import styles from "./index.module.scss";
 function Result() {
     const [result, setResult] = useState({});
     const [sortedKeys, setSortedKeys] = useState([]);
-    console.log(sortedKeys, result);
 
     useEffect(() => {
         onMount();
