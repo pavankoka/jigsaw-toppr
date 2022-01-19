@@ -1,6 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import styles from "./index.module.scss";
 
 function Result() {
+    const [result, setResult] = useState({});
     useEffect(() => {
         onMount();
     }, []);
@@ -15,10 +17,25 @@ function Result() {
                 },
             }
         );
-        console.log(res.json());
+        res.json().then((result) => {
+            setResult(result);
+        });
     };
 
-    return <div></div>;
+    const keys = Object.keys(result);
+
+    return (
+        <div className={styles.wrapper}>
+            {keys.map((key) => (
+                <div key={key} className={styles.row}>
+                    <p className={styles.name}>
+                        {result[key].name || "not logged"}
+                    </p>
+                    <p>{result[key].time}</p>
+                </div>
+            ))}
+        </div>
+    );
 }
 
 export default Result;

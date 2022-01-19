@@ -35,6 +35,10 @@ function Puzzle() {
     const onSuccess = async () => {
         const email = localStorage.getItem("email");
         const name = localStorage.getItem("name");
+        if (!name && !email) {
+            alert("unable to submit! please try in incognito mode!");
+            return;
+        }
         const time = `${parseInt(timer / 60, 10)}mins ${parseInt(
             timer % 60
         )}secs`;
