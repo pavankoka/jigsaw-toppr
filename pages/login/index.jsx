@@ -29,7 +29,7 @@ function Index() {
         setPointerY(-newPointerY * 20);
     }
 
-    function handleSuccess(res) {
+    const handleSuccess = async (res) => {
         const profile = res.profileObj;
         const name = profile.name;
         const email = profile.email;
@@ -38,9 +38,23 @@ function Index() {
             localStorage.setItem("name", name);
             localStorage.setItem("email", email);
             localStorage.setItem("timer", 0);
+
+            const res = await fetch(
+                "https://jigsaw-test-a434d-default-rtdb.firebaseio.com/login.json",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        name,
+                        email,
+                    }),
+                }
+            );
             router.push("/puzzle");
         }
-    }
+    };
 
     if (isLoading) {
         return <p>loding ...</p>;
