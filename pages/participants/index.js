@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
+import Spreadsheet from "react-spreadsheet";
 import styles from "./index.module.scss";
 
 function Result() {
+    const [spreadSheetData, setSpreadSheetData] = useState([]);
     const [emails, setEmails] = useState([]);
     const [result, setResult] = useState({});
     const [keys, setKeys] = useState([]);
@@ -23,6 +25,21 @@ function Result() {
         }
     }
 
+    function generateSpreadSheet(keys, result) {
+        const data = [];
+        keys.map((key) => {
+            data.push([
+                {
+                    value: result[key].name,
+                },
+                {
+                    value: result[key].email,
+                },
+            ]);
+        });
+        setSpreadSheetData(data);
+    }
+
     const onMount = async () => {
         const res = await fetch(
             "https://jigsaw-test-a434d-default-rtdb.firebaseio.com/login.json",
@@ -35,10 +52,22 @@ function Result() {
         );
         res.json().then((result) => {
             setResult(result);
-            setKeys(Object.keys(result));
-            getEmails(Object.keys(result), result);
+            const keys = Object.keys(result);
+            setKeys(keys);
+            getEmails(keys, result);
+            generateSpreadSheet(keys, result);
         });
     };
+
+    if (spreadSheetData.length) {
+        return (
+            <div className={styles.wrapper}>
+                <p>no of unique emails - {emails.length}</p>
+                <p>no of logins - {keys.length}</p>
+                <Spreadsheet data={spreadSheetData} />
+            </div>
+        );
+    }
 
     return (
         <div className={styles.wrapper}>
