@@ -18,6 +18,14 @@ function Puzzle() {
         if (localStorage.getItem("submitted")) {
             router.push("/success");
         }
+        const email = localStorage.getItem("email");
+        const name = localStorage.getItem("name");
+        if (!name && !email) {
+            alert(
+                "unable to fetch mail details! please try in incognito mode!"
+            );
+        }
+
         const windowTimer = setInterval(() => {
             setTimer((currentTimer) => {
                 const updatedTime = parseInt(currentTimer || 0, 10) + 1;
