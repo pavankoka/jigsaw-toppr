@@ -24,6 +24,7 @@ function Puzzle() {
             alert(
                 "unable to fetch mail details! please try in incognito mode!"
             );
+            router.push("/login");
         }
 
         const windowTimer = setInterval(() => {
