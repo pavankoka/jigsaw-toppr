@@ -20,7 +20,7 @@ function Puzzle() {
         }
         const windowTimer = setInterval(() => {
             setTimer((currentTimer) => {
-                const updatedTime = parseInt(currentTimer, 10) + 1;
+                const updatedTime = parseInt(currentTimer || 0, 10) + 1;
                 localStorage.setItem("timer", updatedTime);
                 return updatedTime;
             });
